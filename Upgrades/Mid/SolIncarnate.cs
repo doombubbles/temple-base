@@ -9,7 +9,10 @@ using Il2CppAssets.Scripts.Simulation.Towers.Behaviors.Abilities.Behaviors;
 using BTD_Mod_Helper.Api.Enums;
 using BTD_Mod_Helper.Extensions;
 using HarmonyLib;
+using Il2Cpp;
+using Il2CppAssets.Scripts.Models.Towers.Projectiles.Behaviors;
 using Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors;
+using TempleBase.Displays;
 
 namespace TempleBase.Upgrades.Mid;
 
@@ -48,18 +51,30 @@ public class SolIncarnate : TempleBaseUpgrade
         [HarmonyPostfix]
         private static void Postfix(RangeMutator __instance, Model model)
         {
-            if (__instance.id.Contains(nameof(SolIncarnate)) && model.Is(out TowerModel towerModel))
+            if (__instance.id.Contains(nameof(SolIncarnate)) &&
+                model.Is(out TowerModel towerModel) &&
+                !towerModel.isSubTower)
             {
                 var display = SunTemple.GetAttackModel().GetBehavior<DisplayModel>().display;
                 var attackModel = SunGod.GetAttackModel().Duplicate();
-                attackModel.GetBehavior<DisplayModel>().display = display;
+                var displayModel = attackModel.GetBehavior<DisplayModel>();
+                if (__instance.id.Contains("Vengeful"))
+                {
+                    displayModel.ApplyDisplay<VengefulSunHead>();
+                }
+                else
+                {
+                    displayModel.display = display;
+                }
+
                 attackModel.weapons[0].ejectZ /= 2;
                 attackModel.GetBehavior<RotateToTargetModel>().onlyRotateDuringThrow = false;
                 var proj = attackModel.weapons[0].projectile;
                 proj.radius *= 1.5f;
                 proj.scale *= 1.25f;
+
                 attackModel.weapons[0].RemoveBehavior<CheckTempleCanFireModel>();
-                
+
                 foreach (var templeTowerMutatorGroupModel in SunTemple.GetBehaviors<TempleTowerMutatorGroupModel>())
                 {
                     templeTowerMutatorGroupModel.ApplyToAttack(attackModel);
@@ -69,6 +84,13 @@ public class SolIncarnate : TempleBaseUpgrade
                              .Where(groupModel => groupModel.towerSet == towerModel.towerSet))
                 {
                     templeTowerMutatorGroupModel.ApplyToAttack(attackModel);
+                }
+
+                if (__instance.id.Contains("Vengeful"))
+                {
+                    var newDisplay = CosmeticHelper.SwapDarkTempleAsset(proj.display);
+                    proj.display = proj.GetBehavior<DisplayModel>().display = newDisplay;
+                    proj.GetDamageModel().damage *= 2;
                 }
 
                 towerModel.AddBehavior(attackModel);

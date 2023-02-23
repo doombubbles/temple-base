@@ -39,7 +39,7 @@ public class AvatarOfSol : TempleBaseUpgrade
         towerModel.AddBehavior(ability);
 
         var activate = new ActivateRangeSupportZoneModel($"ActivateRangeSupportZoneModel_{Id}", Id, true, 0, 65,
-            TempleBase.Width, 1, false, Duration, new Il2CppReferenceArray<TowerFilterModel>(0));
+            20, 99, false, Duration, new Il2CppReferenceArray<TowerFilterModel>(0));
 
         ability.AddBehavior(new CreateSoundOnAbilityModel("CreateSoundOnAbilityModel_",
             new SoundModel("SoundModel_", SunTemple.GetBehavior<CreateSoundOnAttachedModel>().sound.assetId), null,
@@ -54,7 +54,9 @@ public class AvatarOfSol : TempleBaseUpgrade
         [HarmonyPostfix]
         private static void Postfix(RangeMutator __instance, Model model)
         {
-            if (__instance.id.Contains(nameof(AvatarOfSol)) && model.Is(out TowerModel towerModel))
+            if (__instance.id.Contains(nameof(AvatarOfSol)) &&
+                model.Is(out TowerModel towerModel) &&
+                !towerModel.isSubTower)
             {
                 var attackModel = SunTemple.GetAttackModel().Duplicate();
                 attackModel.GetBehavior<DisplayModel>().ApplyDisplay<SunHead>();

@@ -21,7 +21,7 @@ public class Daybreak : TempleBaseUpgrade
 
     public override void ApplyUpgrade(TowerModel towerModel)
     {
-        towerModel.GetBehavior<DamageSupportModel>().mutatorId = Id;
+        towerModel.GetBehavior<DamageSupportModel>().mutatorId = Id + (towerModel.isParagon ? "Paragon" : "");
     }
 
     [HarmonyPatch(typeof(DamageSupport.MutatorTower), nameof(DamageSupport.MutatorTower.Mutate))]
@@ -39,13 +39,26 @@ public class Daybreak : TempleBaseUpgrade
                         var bomb = Game.instance.model.GetTower(TowerType.BombShooter).GetWeapon().projectile
                             .Duplicate();
                         var solarCircle = SunGod.GetAttackModel().weapons[0].projectile.display;
+                        if (__instance.id.Contains("Vengeful"))
+                        {
+                            solarCircle = CosmeticHelper.SwapDarkTempleAsset(solarCircle);
+                        }
+
                         var pb = bomb.GetBehavior<CreateProjectileOnContactModel>();
                         var effect = bomb.GetBehavior<CreateEffectOnContactModel>().effectModel;
                         effect.assetId = solarCircle;
                         effect.lifespan /= 20f;
 
                         pb.projectile.pierce = 5 + projectileModel.pierce;
-                        pb.projectile.GetDamageModel().damage = 1 + damageModel.damage;
+                        if (__instance.id.Contains("Vengeful"))
+                        {
+                            pb.projectile.GetDamageModel().damage = damageModel.damage * 2;
+                        }
+                        else
+                        {
+                            pb.projectile.GetDamageModel().damage = 1 + damageModel.damage;
+                        }
+
                         pb.projectile.GetDamageModel().immuneBloonProperties = BloonProperties.None;
 
                         foreach (var behavior in projectileModel.behaviors)

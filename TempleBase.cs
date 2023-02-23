@@ -5,7 +5,6 @@ using Il2CppAssets.Scripts.Models.Towers.Behaviors;
 using Il2CppAssets.Scripts.Simulation.SMath;
 using Il2CppAssets.Scripts.Unity;
 using BTD_Mod_Helper;
-using BTD_Mod_Helper.Api.Enums;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using Il2CppAssets.Scripts.Models.TowerSets;
@@ -17,6 +16,7 @@ public class TempleBase : ModTower
 {
     public override TowerSet TowerSet => TowerSet.Support;
     public override string BaseTower => TowerType.MonkeyVillage;
+    public override ParagonMode ParagonMode => ParagonMode.Base555;
 
     public override int Cost => 500;
 
@@ -44,7 +44,7 @@ public class TempleBase : ModTower
 
         towerModel.AddBehavior(GetAreaModel());
 
-        var temple = Game.instance.model.GetTower(TowerType.SuperMonkey, 4);
+        var temple = Game.instance.model.GetTower(TowerType.SuperMonkey, towerModel.tier >= 5 ? 5 : 4);
         var templeDisplay = temple.GetBehavior<DisplayModel>().Duplicate();
         towerModel.RemoveBehaviors<DisplayModel>();
         towerModel.AddBehavior(templeDisplay);
