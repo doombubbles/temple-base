@@ -1,3 +1,1 @@
-- Fixed issue with some bottom path subtowers not being able to attack
-- Added ability to make normal Sun Temples on top of Temple Bases
-- Added a paragon, the Vengeful Temple Base
+- Recompiled for BTD6 v36.0
