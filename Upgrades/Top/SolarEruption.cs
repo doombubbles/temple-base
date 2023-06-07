@@ -8,6 +8,7 @@ using Il2CppAssets.Scripts.Unity;
 using BTD_Mod_Helper.Extensions;
 using HarmonyLib;
 using Il2Cpp;
+using Il2CppAssets.Scripts.Models.Effects;
 
 namespace TempleBase.Upgrades.Top;
 
@@ -51,11 +52,11 @@ public class SolarEruption : TempleBaseUpgrade
 
                         var createProj = new CreateProjectileOnExhaustFractionModel(
                             "CreateProjectileOnExhaustFractionModel_",
-                            pb.projectile, pb.emission, .01f, 1f, true, false);
+                            pb.projectile, pb.emission, .01f, 1f, true, false, false);
                         projectileModel.AddBehavior(createProj);
 
                         var createEffect = new CreateEffectOnExhaustFractionModel("CreateEffectOnExhaustFractionModel_",
-                            effect.assetId, effect, 0, false, .01f, 1f, false);
+                            effect.assetId, effect, 0, Fullscreen.No, .01f, 1f, false);
                         projectileModel.AddBehavior(createEffect);
                     }
                 }

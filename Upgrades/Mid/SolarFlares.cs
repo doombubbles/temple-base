@@ -18,7 +18,7 @@ public class SolarFlares : TempleBaseUpgrade
     public override void ApplyUpgrade(TowerModel towerModel)
     {
         var visibility = new VisibilitySupportModel("VisibilitySupportModel_TempleBase", true, Id,
-            new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
+            false, new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
         visibility.ApplyBuffIcon<TempleBaseBuffIcon>();
         towerModel.AddBehavior(visibility);
     }
