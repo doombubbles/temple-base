@@ -1,1 +1,2 @@
-- Fixed for BTD6 v37.0
+- Fixed for BTD6 v42.0
+- Moderate nerf to the income generation of the Bottom Path when used with Support Towers (can undo via ModSetting)

@@ -9,13 +9,11 @@ using Il2CppAssets.Scripts.Unity.UI_New.InGame;
 using MelonLoader;
 using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api;
-using BTD_Mod_Helper.Api.Enums;
+using BTD_Mod_Helper.Api.ModOptions;
 using BTD_Mod_Helper.Extensions;
-using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.TowerSets;
 using Il2CppAssets.Scripts.Simulation.SMath;
 using TempleBase;
-using TempleBase.Displays;
 using TempleBase.SacrificeAttacks;
 
 [assembly: MelonInfo(typeof(TempleBaseMod), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
@@ -25,6 +23,11 @@ namespace TempleBase;
 
 public class TempleBaseMod : BloonsTD6Mod
 {
+    public static readonly ModSettingBool NerfedIncome = new(true)
+    {
+        description = "Somewhat nerfs the income generation of the Bottom Path Upgrades when used with a Support Tower"
+    };
+    
     public override void OnTowerCreated(Tower tower, Entity target, Model modelToUse)
     {
         HandleAllModelChanges();

@@ -1,10 +1,10 @@
 ﻿using Il2CppAssets.Scripts.Models.GenericBehaviors;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Unity;
-using Il2CppAssets.Scripts.Utils;
 using BTD_Mod_Helper.Api.Display;
 using BTD_Mod_Helper.Extensions;
 using Il2CppAssets.Scripts.Unity.Display;
+using Il2CppNinjaKiwi.Common.ResourceUtils;
 using UnityEngine;
 
 namespace TempleBase.Displays;

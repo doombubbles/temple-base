@@ -2,6 +2,7 @@
 using Il2CppAssets.Scripts.Unity;
 using Il2CppAssets.Scripts.Utils;
 using BTD_Mod_Helper.Api.Towers;
+using Il2CppNinjaKiwi.Common.ResourceUtils;
 
 namespace TempleBase.Upgrades;
 

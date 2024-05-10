@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Il2CppAssets.Scripts.Models.Towers;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors;
-using BTD_Mod_Helper.Api.Enums;
 using BTD_Mod_Helper.Extensions;
 using Il2CppAssets.Scripts.Models.TowerSets;
 
@@ -16,7 +15,15 @@ public class Support4 : TempleBaseSacAttack
     {
         yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<PierceSupportModel>().FixedSacSupport();
         yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<RangeSupportModel>().FixedSacSupport();
-        yield return GetSacrificeEffect(SunTemple, 25001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+        if (TempleBaseMod.NerfedIncome)
+        {
+            yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+        }
+        else
+        {
+            yield return GetSacrificeEffect(SunTemple, 25001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+        }
+
         yield return GetSacrificeEffect(SunTemple, 25001).GetDescendant<RateSupportModel>().FixedSacSupport();
         yield return GetSacrificeEffect(SunTemple, 50001).GetDescendant<DamageSupportModel>().FixedSacSupport();
     }
