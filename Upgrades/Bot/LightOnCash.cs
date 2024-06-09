@@ -16,7 +16,7 @@ public class LightOnCash : TempleBaseUpgrade
     {
         var buffIcon = GetInstance<TempleBaseBuffIcon>();
         var discount = new DiscountZoneModel("DiscountZoneModel_", .05f, 1, Id, Id,
-             false, 5, buffIcon.Icon, buffIcon.Id);
+             false, 5, buffIcon.Icon, buffIcon.Id, "", "", false);
         towerModel.AddBehavior(discount);
     }
 }
