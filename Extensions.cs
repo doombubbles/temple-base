@@ -119,7 +119,7 @@ public static class Extensions
         var towerModel = tower.towerModel;
         return towerManger
             .GetClosestTowers(tower.Position.ToVector2(), -1, null, towerModel.range)
-            .Where(t => t.parentTowerId.Id == -1)
+            .Where(t => t.ParentId.Id == -1)
             .FirstOrDefault(t => t.Id != tower.Id);
     }
 
@@ -129,7 +129,7 @@ public static class Extensions
         var towerModel = tower.towerModel;
         return towerManger
             .GetClosestTowers(tower.Position.ToVector2(), -1, null, towerModel.range)
-            .Where(t => t.parentTowerId.Id == -1 && t.Id != tower.Id)
+            .Where(t => t.ParentId.Id == -1 && t.Id != tower.Id)
             .ToList();
     }
 

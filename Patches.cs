@@ -83,10 +83,10 @@ internal static class ParagonSacrificing
         {
             if (tower.towerModel.GetModTower() is TempleBase &&
                 paragonTower != null &&
-                tower.GetTowerOnTop().Is(out Tower towerOnTop))
+                tower.GetTowerOnTop().Is(out var towerOnTop))
             {
                 var pos = paragonTower.tower.Position.ToVector2();
-                towerOnTop.PositionTower(new Vector2(pos.x - 10 + (index * 20), pos.y - 10));
+                towerOnTop!.PositionTower(new Vector2(pos.x - 10 + (index * 20), pos.y - 10));
 
                 index++;
             }

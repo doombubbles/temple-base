@@ -88,7 +88,7 @@ public abstract class TempleBaseSacAttack : ModContent
         var simulation = InGame.instance.bridge.Simulation;
         simulation.factory.GetUncast<Tower>().ForEach(t =>
         {
-            if (t.parentTowerId == tower.Id)
+            if (t.ParentId == tower.Id)
             {
                 simulation.DestroyTower(t, t.owner);
             }

@@ -20,10 +20,6 @@ public class TempleBase : ModTower
 
     public override int Cost => 500;
 
-    public override int TopPathUpgrades => 5;
-    public override int MiddlePathUpgrades => 5;
-    public override int BottomPathUpgrades => 5;
-
     public override string Icon => Name;
     public override string Portrait => Name;
 
