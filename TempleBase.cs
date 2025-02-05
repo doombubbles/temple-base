@@ -30,6 +30,8 @@ public class TempleBase : ModTower
         $"Place a tower on top of this to designate it '{TempleBaseUpgrade.TheTower}'.\n" +
         $"By default, increases {TempleBaseUpgrade.TheTower}'s range.";
 
+    public override bool IncludeInRogueLegends => true;
+
     public override void ModifyBaseTowerModel(TowerModel towerModel)
     {
         var footprint = new RectangleFootprintModel("RectangleFootprintModel_", 40, 40, false, false, false);

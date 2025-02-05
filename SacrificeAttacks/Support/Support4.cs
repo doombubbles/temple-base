@@ -17,7 +17,7 @@ public class Support4 : TempleBaseSacAttack
         yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<RangeSupportModel>().FixedSacSupport();
         if (TempleBaseMod.NerfedIncome)
         {
-            yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+            yield return GetSacrificeEffect(SunTemple, 4001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
         }
         else
         {

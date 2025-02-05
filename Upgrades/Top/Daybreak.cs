@@ -75,8 +75,7 @@ public class Daybreak : TempleBaseUpgrade
                             pb.projectile, pb.emission, .01f, 1f, true, false, false);
                         projectileModel.AddBehavior(createProj);
 
-                        var createEffect = new CreateEffectOnExhaustFractionModel("CreateEffectOnExhaustFractionModel_",
-                            effect.assetId, effect, 0, Fullscreen.No, .01f, 1f, false);
+                        var createEffect = new CreateEffectOnExhaustFractionModel("", effect, 0, Fullscreen.No, .01f, 1f, false);
                         projectileModel.AddBehavior(createEffect);
                     }
                 }
