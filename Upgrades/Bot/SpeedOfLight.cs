@@ -8,7 +8,7 @@ namespace TempleBase.Upgrades.Bot;
 
 public class SpeedOfLight : TempleBaseUpgrade
 {
-    public override int Path => BOTTOM;
+    public override int Path => Bottom;
     public override int Tier => 1;
     public override int Cost => 500;
 

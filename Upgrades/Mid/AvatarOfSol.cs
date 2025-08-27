@@ -20,7 +20,7 @@ namespace TempleBase.Upgrades.Mid;
 
 public class AvatarOfSol : TempleBaseUpgrade
 {
-    public override int Path => MIDDLE;
+    public override int Path => Middle;
     public override int Tier => 4;
     public override int Cost => 20000;
 

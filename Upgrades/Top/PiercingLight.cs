@@ -9,7 +9,7 @@ namespace TempleBase.Upgrades.Top;
 
 public class PiercingLight : TempleBaseUpgrade
 {
-    public override int Path => TOP;
+    public override int Path => Middle;
     public override int Tier => 1;
     public override int Cost => 750;
 

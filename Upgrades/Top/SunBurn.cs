@@ -9,7 +9,7 @@ namespace TempleBase.Upgrades.Top;
 
 public class SunBurn : TempleBaseUpgrade
 {
-    public override int Path => TOP;
+    public override int Path => Middle;
     public override int Tier => 2;
     public override int Cost => 1500;
 

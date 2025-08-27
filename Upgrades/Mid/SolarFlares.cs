@@ -8,7 +8,7 @@ namespace TempleBase.Upgrades.Mid;
 
 public class SolarFlares : TempleBaseUpgrade
 {
-    public override int Path => MIDDLE;
+    public override int Path => Middle;
     public override int Tier => 1;
     public override int Cost => 500;
 

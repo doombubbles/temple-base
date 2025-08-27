@@ -17,7 +17,7 @@ namespace TempleBase.Upgrades.Mid;
 
 public class SolIncarnate : TempleBaseUpgrade
 {
-    public override int Path => MIDDLE;
+    public override int Path => Middle;
     public override int Tier => 5;
     public override int Cost => 70000;
 

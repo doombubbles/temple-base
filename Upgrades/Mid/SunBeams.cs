@@ -9,7 +9,7 @@ namespace TempleBase.Upgrades.Mid;
 
 public class SunBeams : TempleBaseUpgrade
 {
-    public override int Path => MIDDLE;
+    public override int Path => Middle;
     public override int Tier => 3;
     public override int Cost => 2000;
 

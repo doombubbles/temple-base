@@ -11,7 +11,7 @@ namespace TempleBase.Upgrades.Mid;
 
 public class LetThereBeLight : TempleBaseUpgrade
 {
-    public override int Path => MIDDLE;
+    public override int Path => Middle;
     public override int Tier => 2;
     public override int Cost => 1000;
 

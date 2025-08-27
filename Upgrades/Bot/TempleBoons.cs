@@ -4,7 +4,7 @@ namespace TempleBase.Upgrades.Bot;
 
 public class TempleBoons : TempleBaseUpgrade
 {
-    public override int Path => BOTTOM;
+    public override int Path => Bottom;
     public override int Tier => 3;
     public override int Cost => 5000;
 
