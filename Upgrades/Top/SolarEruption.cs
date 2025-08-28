@@ -14,7 +14,7 @@ namespace TempleBase.Upgrades.Top;
 
 public class SolarEruption : TempleBaseUpgrade
 {
-    public override int Path => Middle;
+    public override int Path => Top;
     public override int Tier => 4;
     public override int Cost => 9000;
 

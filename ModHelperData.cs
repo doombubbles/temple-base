@@ -3,7 +3,7 @@ namespace TempleBase;
 public static class ModHelperData
 {
     public const string WorksOnVersion = "50.0";
-    public const string Version = "1.1.8";
+    public const string Version = "1.1.9";
     public const string Name = "Temple Base";
 
     public const string Description = "Adds in the Temple Base, a tower that lets you place another tower on top of it to power it up like a Sun Temple.";

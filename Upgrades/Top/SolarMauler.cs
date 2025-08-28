@@ -10,7 +10,7 @@ namespace TempleBase.Upgrades.Top;
 
 public class SolarMauler : TempleBaseUpgrade
 {
-    public override int Path => Middle;
+    public override int Path => Top;
     public override int Tier => 3;
     public override int Cost => 3000;
 

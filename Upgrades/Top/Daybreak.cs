@@ -14,7 +14,7 @@ namespace TempleBase.Upgrades.Top;
 
 public class Daybreak : TempleBaseUpgrade
 {
-    public override int Path => Middle;
+    public override int Path => Top;
     public override int Tier => 5;
     public override int Cost => 90000;
 
