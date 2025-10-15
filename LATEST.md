@@ -1,1 +1,1 @@
-- Fixed a typo that interfered with the top path upgrades
+- Fixed for BTD6 v51

@@ -10,6 +10,7 @@ using Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack.Behaviors;
 using Il2CppAssets.Scripts.Models.Towers.TowerFilters;
 using Il2CppAssets.Scripts.Simulation.Towers.Behaviors.Abilities.Behaviors;
 using BTD_Mod_Helper.Api.Enums;
+using BTD_Mod_Helper.Api.Helpers;
 using BTD_Mod_Helper.Extensions;
 using HarmonyLib;
 using Il2CppAssets.Scripts.Models.Towers.Weapons.Behaviors;
@@ -34,18 +35,24 @@ public class AvatarOfSol : TempleBaseUpgrade
 
     public override void ApplyUpgrade(TowerModel towerModel)
     {
-        var ability = new AbilityModel($"AbilityModel_{Name}", DisplayName, Description, 1, 0, IconReference, Cooldown,
-            new Il2CppReferenceArray<Model>(0), false, false, null, 0, 0, 9999, false, false);
-        towerModel.AddBehavior(ability);
-
         var activate = new ActivateRangeSupportZoneModel($"ActivateRangeSupportZoneModel_{Id}", Id, true, 0, 65,
             20, 99, false, Duration, new Il2CppReferenceArray<TowerFilterModel>(0));
 
-        ability.AddBehavior(new CreateSoundOnAbilityModel("CreateSoundOnAbilityModel_",
-            new SoundModel("SoundModel_", SunTemple.GetBehavior<CreateSoundOnAttachedModel>().sound.assetId), null,
-            null));
-
-        ability.AddBehavior(activate);
+        towerModel.AddBehavior(new AbilityHelper(Name)
+        {
+            DisplayName = DisplayName,
+            Description = Description,
+            Animation = 1,
+            IconReference = IconReference,
+            Cooldown = Cooldown,
+            Behaviors =
+            [
+                new CreateSoundOnAbilityModel("",
+                    new SoundModel("SoundModel_", SunTemple.GetBehavior<CreateSoundOnAttachedModel>().sound.assetId),
+                    null, null),
+                activate
+            ]
+        });
     }
 
     [HarmonyPatch(typeof(RangeMutator), nameof(RangeMutator.Mutate))]
