@@ -13,12 +13,12 @@ public class Magic5 : TempleBaseSacAttack
 
     protected override IEnumerable<TowerBehaviorModel> GetBehaviors()
     {
-        yield return GetSacrificeEffect(SunTemple, 10001).GetDescendant<AttackModel>().FixedSacAttack();
-        yield return GetSacrificeEffect(SunTemple, 15001).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunTemple, 35001).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunTemple, 40001).GetDescendant<AttackModel>().FixedSacAttack();
         yield return GetSacrificeEffect(SunTemple, 50001).GetDescendant<AttackModel>().FixedSacAttack();
             
-        yield return GetSacrificeEffect(SunGod, 10001).GetDescendant<AttackModel>().FixedSacAttack();
-        yield return GetSacrificeEffect(SunGod, 15001).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunGod, 35001).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunGod, 40001).GetDescendant<AttackModel>().FixedSacAttack();
         yield return GetSacrificeEffect(SunGod, 50001).GetDescendant<AttackModel>().FixedSacAttack();
     }
 }

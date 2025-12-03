@@ -1,1 +1,2 @@
-- Fixed for BTD6 v51
+- Fixed for BTD6 v52
+- Bottom Path Tier 3 Temple Boons upgrade costs 20000 now based on v52 sacrifice changes

@@ -13,7 +13,7 @@ public class Primary3 : TempleBaseSacAttack
 
     protected override IEnumerable<TowerBehaviorModel> GetBehaviors()
     {
-        yield return GetSacrificeEffect(SunTemple, 2001).GetDescendant<AttackModel>().FixedSacAttack();
-        yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunTemple, 10001).GetDescendant<AttackModel>().FixedSacAttack();
+        yield return GetSacrificeEffect(SunTemple, 30001).GetDescendant<AttackModel>().FixedSacAttack();
     }
 }

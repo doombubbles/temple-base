@@ -13,16 +13,16 @@ public class Support3 : TempleBaseSacAttack
 
     protected override IEnumerable<TowerBehaviorModel> GetBehaviors()
     {
-        yield return GetSacrificeEffect(SunTemple, 2001).GetDescendant<RateSupportModel>().FixedSacSupport();
-        yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<PierceSupportModel>().FixedSacSupport();
-        yield return GetSacrificeEffect(SunTemple, 7501).GetDescendant<RangeSupportModel>().FixedSacSupport();
+        yield return GetSacrificeEffect(SunTemple, 20001).GetDescendant<RateSupportModel>().FixedSacSupport();
+        yield return GetSacrificeEffect(SunTemple, 30001).GetDescendant<PierceSupportModel>().FixedSacSupport();
+        yield return GetSacrificeEffect(SunTemple, 30001).GetDescendant<RangeSupportModel>().FixedSacSupport();
         if (TempleBaseMod.NerfedIncome)
         {
-            yield return GetSacrificeEffect(SunTemple, 300).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+            yield return GetSacrificeEffect(SunTemple, 10001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
         }
         else
         {
-            yield return GetSacrificeEffect(SunTemple, 4001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
+            yield return GetSacrificeEffect(SunTemple, 25001).GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
         }
     }
 }
